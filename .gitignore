@@ -1,0 +1,7 @@
+*.pyc
+.env
+.DS_Store
+db.sqlite3
+venv/
+*/migrations/*
+!*/migrations/__init__.py

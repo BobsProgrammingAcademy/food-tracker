@@ -1,0 +1,17 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin: 0 0 90px; /* bottom = footer height */
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 90px;
+    width: 100%;
+}

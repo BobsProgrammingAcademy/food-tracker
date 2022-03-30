@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Food Tracker | Food Log{% endblock %}
+
+{% block body %}
+<div class='py-4 mt-auto'>
+    <div class='container-fluid px-4'>
+
+        <div class='row justify-content-center'>
+            <div class='col-xl-12'>
+                
+                    <div class='row'>
+                        <div class='col-md-6 mt-4'>
+
+                            <div class='card bg-secondary mb-3'>
+                                <div class='card-header'>
+                                    <h5>Select food to add to the Food Log</h5>
+                                </div>
+                                <div class='card-body'>
+
+                                    <div class='form-group'>
+                                        <form method='POST'>
+                                            {% csrf_token %}
+                                            <div class='form-group'>
+                                                <div class='row'>
+                                                    <div class='col-8'>
+                                                        <select class='form-select' name='food_consumed' id='food_consumed'>
+                                                            {% for food in foods %}
+                                                                <option value='{{food.food_name}}'>
+                                                                    {{ food.food_name }}
+                                                                </option>
+                                                            {% endfor %}
+                                                        </select>
+                                                    </div>
+                                                    <div class='col-4'>
+                                                        <button type='submit' class='btn btn-primary'>
+                                                            Add Food
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class='card bg-secondary mb-3'>
+
+                                <div class='card-header'>
+                                    <h5>Food consumed today</h5>
+                                    <h5><strong class='text-primary'>{% now 'D, jS F Y' %}</strong></h5>
+                                </div>
+                                <div class='card-body'>
+
+                                    <table id='foodtable' class='table table-hover'>
+                                        <thead>
+                                            <tr>
+                                                <th scope='col' class='col-md-2'>Food Item</th>
+                                                <th scope='col' class='col-md-2'>Calories</th>
+                                                <th scope='col' class='col-md-2'>Fat (g) in 100g</th>
+                                                <th scope='col' class='col-md-2'>Carbs (g) in 100g</th>
+                                                <th scope='col' class='col-md-2'>Protein (g) in 100g</th>
+                                                <th scope='col' class='col-md-2'></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for food_item in user_food_log %}
+                                            <tr>
+                                                <td class='col-md-2'>{{ food_item.food_consumed.food_name }}</td>
+                                                <td class='col-md-2'>{{ food_item.food_consumed.calories }}</td>
+                                                <td class='col-md-2'>{{ food_item.food_consumed.fat }}</td>
+                                                <td class='col-md-2'>{{ food_item.food_consumed.carbohydrates }}</td>
+                                                <td class='col-md-2'>{{ food_item.food_consumed.protein }}</td>   
+                                                <td>
+                                                    <a class='btn btn-danger' href="{% url 'food_log_delete' food_item.id %}">
+                                                        <i class='fas fa-trash-alt'></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                            <tr>
+                                                <td id='foodName' class='col-md-2'><b>Total</b></td>
+                                                <td id='totalCalories' class='col-md-2'><b></b></td>
+                                                <td id='totalFat' class='col-md-2'><b></b></td>
+                                                <td id='totalCarbohydrates' class='col-md-2'><b></b></td>
+                                                <td id='totalProtein' class='col-md-2'><b></b></td>
+                                                <td></td>     
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                        <div class='col-md-6 mt-4'>
+
+                            <div class='card bg-secondary mb-3'>
+                                <div class='card-header'>
+                                    <h5>Daily Calorie Goal - <strong class='text-primary'>2,000 calories</strong></h5>
+                                </div>
+                                <div class='card-body justify-content-center'>
+
+                                    <div class='progress' style="height: 40px;">
+                                        <div 
+                                            id='progressBar'
+                                            class='progress-bar progress-bar-striped progress-bar-animated' 
+                                            role='progressbar' 
+                                            aria-valuenow='0' 
+                                            aria-valuemin='0' 
+                                            aria-valuemax='100' 
+                                            style='width: 0%; font-size: 25px;'
+                                        >0%</div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class='card bg-secondary mb-3'>
+                                <div class='card-header'>
+                                    <h5>Macronutrients Breakdown</h5>
+                                </div>
+                                <div class='card-body justify-content-center'>
+                                    <div class='chart-pie pt-4'>
+                                        <canvas id='myPieChart'></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+            </div>
+        </div>
+
+    </div>
+</div>    
+{% endblock %}
+
+{% block script %}
+    <!-- Page level plugins -->    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="{% static 'js/foodLog.js' %}"></script>
+{% endblock %}

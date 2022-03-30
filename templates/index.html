@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block title %}Food Tracker | {{ title }}{% endblock %}
+
+{% block body %}
+<div class='py-4 mt-auto'>
+    <div class='container px-4'>
+
+        <h3>{{ title }}</h3>
+
+        <div class='row justify-content-center'>
+
+        {% for food in pages %}
+            <div class='col-sm-12 col-md-12 col-lg-4 col-xl-3 d-flex align-items-stretch'>
+                <div class='card bg-secondary mb-3'>
+
+                    <!-- Food image -->
+                    <a href='#'>
+                        <img 
+                            src="{{ food.image.image.url|default:'../../static/images/no_image.png' }}" 
+                            class='img-fluid'
+                            alt='food image'
+                        >
+                    </a>
+            
+                    <div class='card-body'>
+                        <h4 class='card-title'>
+                            <!-- Food name -->
+                            <strong>{{ food.food_name }}</strong>
+                        </h4>
+
+                        <p class='card-text'>
+                            <div class='my-3'>
+                                <!-- Food category -->
+                                Category: {{ food.category }}
+                            </div>
+                        </p>
+
+                        <p class='card-text'>
+                            <div class='my-3'>
+                                <!-- Food calories -->
+                                <strong>{{ food.calories}} calories</strong> in {{ food.quantity|floatformat:0 }} grams
+                            </div>
+                        </p>
+
+                        <p class='card-text'>
+                            <div class='my-3'>
+                                <a href="{% url 'food_details' food.id %}" type='button' class='btn btn-link'>
+                                    View details
+                                </a>
+                            </div>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+        {% endfor %}
+
+        {% if pages.has_other_pages %}
+            <div class='d-flex justify-content-center'>
+                <ul class='pagination'>
+                    {% if pages.has_previous %}
+                        <li class='page-item'>
+                            <a class='page-link' href='?page={{ pages.previous_page_number }}'>&laquo;</a>
+                        </li>
+                    {% else %}
+                        <li class='page-item disabled'>
+                            <a class='page-link' href='#'>&laquo;</a>
+                        </li>
+                    {% endif %}
+                    {% for i in pages.paginator.page_range %}
+                        {% if pages.number == i %}
+                            <li class='page-item active'>
+                                <a class='page-link' href='#'>{{ i }}</a>
+                            </li>
+                        {% else %}
+                            <li class='page-item'>
+                                <a class='page-link' href='?page={{ i }}'>{{ i }}</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                    {% if pages.has_next %}
+                        <li class='page-item'>
+                            <a class='page-link' href='?page={{ pages.next_page_number }}'>&raquo;</a>
+                        </li>
+                    {% else %}
+                        <li class='page-item disabled'>
+                            <a class='page-link' href='#'>&raquo;</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        {% endif %}
+
+    </div>
+</div>
+{% endblock %}

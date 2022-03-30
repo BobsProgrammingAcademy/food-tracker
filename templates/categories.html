@@ -1,0 +1,12 @@
+{% block categories %}
+
+    {% for category in categories %}
+        <a class='dropdown-item' href="{% url 'category_details_view' category.category_name %}">
+            {{ category }} &nbsp;
+            <span class='badge-warning badge-pill'>
+                {{ category.count_food_by_category }}
+            </span>
+        </a>
+    {% endfor %}
+
+{% endblock %}
