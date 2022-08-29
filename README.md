@@ -7,6 +7,13 @@ This is a food tracking application built using **Django 3.2** with **Bootstrap 
 ![plot](https://github.com/BobsProgrammingAcademy/Food-Tracker-Django-Bootstrap/blob/main/static/images/FoodLog.png?raw=true)
 
 
+## Table of Contents 
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Running the application](#run-the-application)
+- [Adding data to the application](#add-data-to-the-application)
+
+
 ## Prerequisites
 
 Install the following prerequisites:
