@@ -1,6 +1,6 @@
 # Food Tracker
 
-This is a food tracking application built using **Django 3.2** with **Bootstrap 5** and **Chart.js** that uses a **PostgreSQL** database to store data.
+This is a food tracking application built using **Django 3.2** with **Bootstrap 5** and **Chart.js 2.8** that uses a **PostgreSQL** database to store data.
 
 ![plot](https://github.com/BobsProgrammingAcademy/Food-Tracker-Django-Bootstrap/blob/main/static/images/FoodList.png?raw=true)
 
