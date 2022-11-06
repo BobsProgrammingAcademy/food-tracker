@@ -12,6 +12,7 @@ This is a food tracking application built using **Django 3** with **Bootstrap 5*
 - [Installation](#installation)
 - [Running the application](#run-the-application)
 - [Adding data to the application](#add-data-to-the-application)
+- [Copyright and License](#copyright-and-license)
 
 
 ## Prerequisites
