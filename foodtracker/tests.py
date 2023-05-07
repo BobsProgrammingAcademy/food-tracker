@@ -20,3 +20,4 @@ class FoodCategoryUnitTestCase(TestCase):
     def test_food_category_model(self):
         data = self.category
         self.assertIsInstance(data, FoodCategory)
+        self.assertEqual(str(data.category_name), 'Vegetables')
