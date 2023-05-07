@@ -1,8 +1,12 @@
 asgiref==3.5.0
 coverage==7.2.5
 Django==3.2.12
+flake8==6.0.0
+mccabe==0.7.0
 Pillow==9.0.1
 psycopg2-binary==2.9.3
+pycodestyle==2.10.0
+pyflakes==3.0.1
 python-decouple==3.6
 pytz==2022.1
 sqlparse==0.4.2
