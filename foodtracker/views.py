@@ -119,7 +119,7 @@ def food_details_view(request, food_id):
         'food': food,
         'images': food.get_images.all(),
     })
-    
+
 
 @login_required
 def food_add_view(request):
@@ -149,7 +149,7 @@ def food_add_view(request):
                 'image_form': ImageFormSet(queryset=Image.objects.none()),
                 'success': True
             })
-        
+
         else:
             return render(request, 'food_add.html', {
                 'categories': FoodCategory.objects.all(),
@@ -163,12 +163,12 @@ def food_add_view(request):
             'food_form': FoodForm(),
             'image_form': ImageFormSet(queryset=Image.objects.none()),
         })
-    
+
 
 @login_required
 def food_log_view(request):
     '''
-    It allows the user to select food items and 
+    It allows the user to select food items and
     add them to their food log
     '''
     if request.method == 'POST':
@@ -180,17 +180,17 @@ def food_log_view(request):
 
         # get the currently logged in user
         user = request.user
-        
+
         # add selected food to the food log
         food_log = FoodLog(user=user, food_consumed=food_consumed)
         food_log.save()
 
-    else: # GET method
+    else:  # GET method
         foods = Food.objects.all()
-        
+
     # get the food log of the logged in user
     user_food_log = FoodLog.objects.filter(user=request.user)
-    
+
     return render(request, 'food_log.html', {
         'categories': FoodCategory.objects.all(),
         'foods': foods,
@@ -209,7 +209,7 @@ def food_log_delete(request, food_id):
     if request.method == 'POST':
         food_consumed.delete()
         return redirect('food_log')
-    
+
     return render(request, 'food_log_delete.html', {
         'categories': FoodCategory.objects.all()
     })
@@ -235,7 +235,7 @@ def weight_log_view(request):
 
     # get the weight log of the logged in user
     user_weight_log = Weight.objects.filter(user=request.user)
-    
+
     return render(request, 'user_profile.html', {
         'categories': FoodCategory.objects.all(),
         'user_weight_log': user_weight_log
@@ -248,12 +248,12 @@ def weight_log_delete(request, weight_id):
     It allows the user to delete a weight record from their weight log
     '''
     # get the weight log of the logged in user
-    weight_recorded = Weight.objects.filter(id=weight_id) 
+    weight_recorded = Weight.objects.filter(id=weight_id)
 
     if request.method == 'POST':
         weight_recorded.delete()
         return redirect('weight_log')
-    
+
     return render(request, 'weight_log_delete.html', {
         'categories': FoodCategory.objects.all()
     })
@@ -270,7 +270,7 @@ def categories_view(request):
 
 def category_details_view(request, category_name):
     '''
-    Clicking on the name of any category takes the user to a page that 
+    Clicking on the name of any category takes the user to a page that
     displays all of the foods in that category
     Food items are paginated: 4 per page
     '''
