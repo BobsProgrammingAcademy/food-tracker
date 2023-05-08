@@ -1,4 +1,4 @@
-from django.test import TestCase
+from django.test import TestCase, Client
 from .models import User, FoodCategory
 
 
@@ -21,3 +21,12 @@ class FoodCategoryUnitTestCase(TestCase):
         data = self.category
         self.assertIsInstance(data, FoodCategory)
         self.assertEqual(str(data.category_name), 'Vegetables')
+
+
+class IndexRequestTestCase(TestCase):
+    def setUp(self):
+        self.client = Client()
+
+    def test_index_view(self):
+        response = self.client.get('/')
+        self.assertEqual(response.status_code, 200)
