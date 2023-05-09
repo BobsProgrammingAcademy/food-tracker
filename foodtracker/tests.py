@@ -39,3 +39,12 @@ class FoodListRequestTestCase(TestCase):
     def test_index_view(self):
         response = self.client.get('/food/list')
         self.assertEqual(response.status_code, 200)
+
+
+class CategoriesListRequestTestCase(TestCase):
+    def setUp(self):
+        self.client = Client()
+
+    def test_index_view(self):
+        response = self.client.get('/categories')
+        self.assertEqual(response.status_code, 200)
