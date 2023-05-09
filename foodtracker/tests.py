@@ -32,6 +32,15 @@ class IndexRequestTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
 
 
+class LoginRequestTestCase(TestCase):
+    def setUp(self):
+        self.client = Client()
+
+    def test_index_view(self):
+        response = self.client.get('/login')
+        self.assertEqual(response.status_code, 200)
+
+
 class FoodListRequestTestCase(TestCase):
     def setUp(self):
         self.client = Client()
