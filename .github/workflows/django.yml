@@ -2,40 +2,15 @@ name: Django CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "master" ]
 
   pull_request:
-    branches: [ "main" ]
-
-env:
-  SECRET_KEY: yoursecretkey
-  DEBUG: True
-  DATABASE_NAME: postgres
-  DATABASE_USER: postgres
-  DATABASE_PASS: postgres
-  DATABASE_HOST: localhost
+    branches: [ "master" ]
 
 jobs:
   build:
 
     runs-on: ubuntu-latest
-    container: node:10.18-jessie
-
-    services:
-      postgres:
-        image: postgres:latest
-        env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: food
-        ports:
-          - 5432:5432
-        # needed because the postgres container does not provide a healthcheck
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
 
     steps:
     - uses: actions/checkout@v3
