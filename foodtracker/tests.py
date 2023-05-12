@@ -41,6 +41,15 @@ class LoginRequestTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
 
 
+class RegisterRequestTestCase(TestCase):
+    def setUp(self):
+        self.client = Client()
+
+    def test_login_view(self):
+        response = self.client.get('/register')
+        self.assertEqual(response.status_code, 200)
+
+
 class FoodListRequestTestCase(TestCase):
     def setUp(self):
         self.client = Client()
