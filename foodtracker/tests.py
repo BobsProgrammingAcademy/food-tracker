@@ -55,8 +55,8 @@ class FoodListRequestTestCase(TestCase):
     def setUp(self):
         self.client = Client()
 
-    def test_foodlist_view(self):
-        response = self.client.get('/food/list')
+    def test_food_list_view(self):
+        response = self.client.get(reverse('food_list'))
         self.assertEqual(response.status_code, 200)
 
 
