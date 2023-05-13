@@ -1,4 +1,5 @@
 from django.test import TestCase, Client
+from django.urls import reverse
 from .models import User, FoodCategory
 
 
@@ -37,7 +38,7 @@ class LoginRequestTestCase(TestCase):
         self.client = Client()
 
     def test_login_view(self):
-        response = self.client.get('/login')
+        response = self.client.get(reverse('login'))
         self.assertEqual(response.status_code, 200)
 
 
