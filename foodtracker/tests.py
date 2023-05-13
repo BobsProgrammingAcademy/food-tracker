@@ -65,5 +65,5 @@ class CategoriesRequestTestCase(TestCase):
         self.client = Client()
 
     def test_categories_view(self):
-        response = self.client.get('/categories')
+        response = self.client.get(reverse('categories_view'))
         self.assertEqual(response.status_code, 200)
