@@ -47,7 +47,7 @@ class RegisterRequestTestCase(TestCase):
         self.client = Client()
 
     def test_login_view(self):
-        response = self.client.get('/register')
+        response = self.client.get(reverse('register'))
         self.assertEqual(response.status_code, 200)
 
 
