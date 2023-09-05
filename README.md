@@ -1,19 +1,18 @@
 # Food Tracker
 
-This is a food tracking application built using **Django 3**, **HTML 5**, **CSS 3**, and **Bootstrap 5** that uses a **PostgreSQL** database to store data. Charts are built using **Chart.js 2**.
+This is a food tracking application built using **Django 4**, **HTML 5**, **CSS 3**, and **Bootstrap 5** that uses a **PostgreSQL** database to store data. Charts are built using **Chart.js 2**.
 
 ![plot](https://github.com/BobsProgrammingAcademy/Food-Tracker-Django-Bootstrap/blob/main/static/images/FoodList.png?raw=true)
 
 ![plot](https://github.com/BobsProgrammingAcademy/Food-Tracker-Django-Bootstrap/blob/main/static/images/FoodLog.png?raw=true)
 
+### Table of Contents
 
-### Table of Contents 
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Running the application](#run-the-application)
 - [Adding data to the application](#add-data-to-the-application)
 - [Copyright and License](#copyright-and-license)
-
 
 ### Prerequisites
 
@@ -22,7 +21,6 @@ Install the following prerequisites:
 1. [Python](https://www.python.org/downloads/)
 2. [PostgreSQL](https://www.postgresql.org/download/)
 3. [Visual Studio Code](https://code.visualstudio.com/download)
-
 
 ### Installation
 
@@ -100,7 +98,6 @@ touch .env
 
 The **touch** command will create the **.env** file in the **root** directory. This command works on Mac and Linux but not on Windows. If you are a Windows user, instead of using the command line, you can create the **.env** file manually by navigating in Visual Studio Code to the Explorer, and selecting the option **New File**.
 
-
 Next, declare environment variables in the **.env** file. Make sure you don't use quotation marks around the strings.
 
 ```bash
@@ -119,6 +116,7 @@ From the **root** directory run:
 ```bash
 python manage.py makemigrations
 ```
+
 ```bash
 python manage.py migrate
 ```
@@ -133,7 +131,6 @@ python manage.py createsuperuser
 
 When prompted, enter a username, email, and password.
 
-
 ### Run the application
 
 From the **root** directory run:
@@ -146,13 +143,11 @@ python manage.py runserver
 
 Go to http://127.0.0.1:8000/ to view the application.
 
-
 ### Add data to the application
 
 Add data through Django Admin.
 
 Go to http://127.0.0.1:8000/admin to access the Django Admin interface and sign in using the admin credentials.
-
 
 ### Copyright and License
 
