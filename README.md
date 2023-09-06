@@ -18,7 +18,8 @@ This is a food tracking application built using **Django 4**, **HTML 5**, **CSS 
 
 Install the following prerequisites:
 
-1. [Python](https://www.python.org/downloads/)
+1. [Python 3.8-3.11](https://www.python.org/downloads/)
+<br> This project uses **Django v4.2.4**. For Django to work, you must have a correct Python version installed on your machine. More information [here](https://django.readthedocs.io/en/stable/faq/install.html).
 2. [PostgreSQL](https://www.postgresql.org/download/)
 3. [Visual Studio Code](https://code.visualstudio.com/download)
 
