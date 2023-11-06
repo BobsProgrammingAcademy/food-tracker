@@ -39,8 +39,8 @@ Chart.defaults.global.defaultFontFamily =
 Chart.defaults.global.defaultFontColor = '#858796';
 
 // Doughnut Chart - Macronutrients breakdown
-const ctx = document.getElementById('myPieChart');
-const myPieChart = new Chart(ctx, {
+const ctxDoughnutChart = document.getElementById('myPieChart');
+const myDoughnutChart = new Chart(ctxDoughnutChart, {
   type: 'doughnut',
   data: {
     labels: [

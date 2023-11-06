@@ -21,8 +21,8 @@ Chart.defaults.global.defaultFontFamily =
 Chart.defaults.global.defaultFontColor = '#858796';
 
 // Horizontal Bar Chart - Macronutrients breakdown
-const ctx = document.getElementById('myBarChart');
-const myBarChart = new Chart(ctx, {
+const ctxBarChart = document.getElementById('myBarChart');
+const myBarChart = new Chart(ctxBarChart, {
   type: 'horizontalBar',
   data: {
     labels: ['Fat', 'Carbs', 'Protein'],

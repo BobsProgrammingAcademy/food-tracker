@@ -17,8 +17,8 @@ Chart.defaults.global.defaultFontFamily =
 Chart.defaults.global.defaultFontColor = '#858796';
 
 // Area Chart - Weight History
-const ctx = document.getElementById('myChart');
-const myChart = new Chart(ctx, {
+const ctxAreaChart = document.getElementById('myChart');
+const myAreaChart = new Chart(ctxAreaChart, {
   type: 'line',
   data: {
     labels: [...recorded_date],
