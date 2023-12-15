@@ -6,13 +6,16 @@ This is a food-tracking application built using **Django 4**, **HTML 5**, **CSS 
 
 ![plot](https://github.com/BobsProgrammingAcademy/Food-Tracker-Django-Bootstrap/blob/main/static/images/FoodLog.png?raw=true)
 
+
 ### Table of Contents
 
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Running the application](#run-the-application)
+- [Running the tests](#run-the-tests)
 - [Adding data to the application](#add-data-to-the-application)
 - [Copyright and License](#copyright-and-license)
+
 
 ### Prerequisites
 
@@ -22,6 +25,7 @@ Install the following prerequisites:
 <br> This project uses **Django v4.2.4**. For Django to work, you must install a correct version of Python on your machine. More information [here](https://django.readthedocs.io/en/stable/faq/install.html).
 2. [PostgreSQL](https://www.postgresql.org/download/)
 3. [Visual Studio Code](https://code.visualstudio.com/download)
+
 
 ### Installation
 
@@ -132,6 +136,7 @@ python manage.py createsuperuser
 
 When prompted, enter a username, email, and password.
 
+
 ### Run the application
 
 From the **root** directory, run:
@@ -140,15 +145,28 @@ From the **root** directory, run:
 python manage.py runserver
 ```
 
+
+### Run the tests
+
+From the **root** directory, run:
+
+```bash
+python manage.py test --pattern="tests.py"
+
+```
+
+
 ### View the application
 
 Go to http://127.0.0.1:8000/ to view the application.
+
 
 ### Add data to the application
 
 Add data through Django Admin.
 
 Go to http://127.0.0.1:8000/admin to access the Django Admin interface and sign in using the admin credentials.
+
 
 ### Copyright and License
 
