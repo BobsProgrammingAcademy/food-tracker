@@ -21,8 +21,6 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 4
-      matrix:
-        python-version: [3.8, 3.9, '3.10']
 
     services:
       postgres:
@@ -44,10 +42,10 @@ jobs:
       - name: Checkout source Git branch
         uses: actions/checkout@v4
     
-      - name: Set up Python ${{ matrix.python-version }}
+      - name: Set up Python 3.8
         uses: actions/setup-python@v4
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: 3.8
     
       - name: Install Dependencies
         run: |
