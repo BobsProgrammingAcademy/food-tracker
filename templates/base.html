@@ -54,6 +54,7 @@
                                 {% endfor %}
                             </div>
                         </li>
+                        
                         {% if user.is_authenticated %}
                             <li class='nav-item'>
                                 <a class='nav-link' href="{% url 'food_add' %}">
@@ -66,9 +67,11 @@
                                 </a>
                             </li>
                         {% endif %}
+                        
                     </ul>
 
                     <ul class='navbar-nav ms-auto'>
+                        
                         {% if user.is_authenticated %}
                         <li class='nav-item dropdown'>
                             <a class='nav-link dropdown-toggle' data-bs-toggle='dropdown' href='#' role='button' aria-haspopup='true' aria-expanded='false'>
@@ -96,6 +99,7 @@
                             </a>
                         </li>
                         {% endif %}
+                        
                     </ul>
                 </div>
             </div>
