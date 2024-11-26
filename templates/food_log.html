@@ -27,11 +27,13 @@
                                                 <div class='row'>
                                                     <div class='col-8'>
                                                         <select class='form-select' name='food_consumed' id='food_consumed'>
+                                                            
                                                             {% for food in foods %}
                                                                 <option value='{{food.food_name}}'>
                                                                     {{ food.food_name }}
                                                                 </option>
                                                             {% endfor %}
+                                                            
                                                         </select>
                                                     </div>
                                                     <div class='col-4'>
@@ -66,6 +68,7 @@
                                                 <th scope='col' class='col-md-2'></th>
                                             </tr>
                                         </thead>
+                                        
                                         <tbody>
                                         {% for food_item in user_food_log %}
                                             <tr>
@@ -81,6 +84,7 @@
                                                 </td>
                                             </tr>
                                         {% endfor %}
+                                            
                                             <tr>
                                                 <td id='foodName' class='col-md-2'><b>Total</b></td>
                                                 <td id='totalCalories' class='col-md-2'><b></b></td>
@@ -124,6 +128,7 @@
                                 <div class='card-header'>
                                     <h5>Macronutrients Breakdown</h5>
                                 </div>
+                                
                                 <div class='card-body justify-content-center'>
                                     <div class='chart-pie pt-4'>
                                         <canvas id='myPieChart'></canvas>
