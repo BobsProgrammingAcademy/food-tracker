@@ -71,6 +71,7 @@
                                                             id='date'
                                                         >
                                                     </div>
+                                                    
                                                     <div class='col-5'>
                                                         <label for='weight' class='form-label mt-2'>
                                                             Weight in kg
@@ -88,6 +89,7 @@
                                                             pattern='^\d*(\.\d{0,2})?$'
                                                         >
                                                     </div>
+                                                    
                                                     <div class='col-2'>
                                                         <button type='submit' class='btn btn-primary' style='margin-top:40px;'>
                                                             Add
@@ -116,6 +118,7 @@
                                                 <th scope='col' class='col-md-4'></th>
                                             </tr>
                                         </thead>
+                                        
                                         <tbody>
                                             {% for weight_record in user_weight_log %}
                                                 <tr>
@@ -144,6 +147,7 @@
                                 <div class='card-header'>
                                     <h4>Weight History</h4>
                                 </div>
+                                
                                 <div class='card-body justify-content-center'>
                                     <div class='chart-bar'>
                                         <canvas id='myChart'></canvas>
